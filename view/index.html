@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        background: linear-gradient(to right, white, #e6ccb2, #755539, pink);
+      }
+
+      div {
+        width: 80%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      table {
+        border-collapse: collapse;
+        padding: 2.5%;
+        background-color: rgb(235, 175, 175);
+        border: 3px solid black;
+      }
+
+      table td,
+      table th {
+        border: 1.6px solid black;
+        padding: 6px;
+      }
+
+      table th {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: left;
+        background-color: black;
+        color: rgb(235, 175, 175);
+      }
+
+      table tr:hover {
+        background-color: rgba(0, 0, 0, 0.15);
+      }
+
+      h2 {
+        background-color: rgba(235, 175, 175, 0.7);
+        text-align: center;
+        font-size: 3rem;
+      }
+
+      thead {
+        border-bottom: 1.5px solid black;
+      }
+    </style>
+    <title>Sophistica | Routes</title>
+  </head>
+  <body>
+    <h2>Route Description for Users & Products</h2>
+    <div>
+      <table>
+        <thead style="font-size: 2rem">
+          <th style="width: 10%">#</th>
+          <th style="width: 20%">Method</th>
+          <th style="width: 20%">Path</th>
+          <th style="width: 50%">Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>GET</td>
+            <td>/</td>
+            <td>Renders the home page (index.html)</td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td>POST</td>
+            <td>/login</td>
+            <td>Allows users to log into their account .</td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td>GET</td>
+            <td>/users</td>
+            <td>Returns an array displaying all users registered .</td>
+          </tr>
+          <tr>
+            <td>04</td>
+            <td>GET</td>
+            <td>/users/:id</td>
+            <td>Returns an object of the user with matching ID .</td>
+          </tr>
+          <tr>
+            <td>05</td>
+            <td>PUT</td>
+            <td>/users/:id</td>
+            <td>Updates details of the user with the matching ID .</td>
+          </tr>
+          <tr>
+            <td>06</td>
+            <td>POST</td>
+            <td>/register</td>
+            <td>
+              Encrypts password given by user, saves user successfully in
+              relevant database, and returns a JSON web token to the frontend.
+            </td>
+          </tr>
+          <tr>
+            <td>07</td>
+            <td>DELETE</td>
+            <td>/users/:id</td>
+            <td>Removes user from the relevant database .</td>
+          </tr>
+          <tr>
+            <td>08</td>
+            <td>GET</td>
+            <td>/products</td>
+            <td>Returns an array of all products .</td>
+          </tr>
+          <tr>
+            <td>09</td>
+            <td>GET</td>
+            <td>/products/:id</td>
+            <td>
+              Returns an object of the selected product with matching ID .
+            </td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>POST</td>
+            <td>/products</td>
+            <td>Successfully saves product in relevant database .</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>PUT</td>
+            <td>/products/:id</td>
+            <td>
+              Updates product in relevant database successfully -- only users
+              with admin roles can update products .
+            </td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>DELETE</td>
+            <td>/products/:id</td>
+            <td>
+              Deletes product from relevant database successfully -- only users
+              with admin roles can update products .
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
