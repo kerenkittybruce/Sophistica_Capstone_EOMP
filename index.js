@@ -4,7 +4,7 @@ const express = require("express");
 
 // Route
 
-const route = require("./controllers");
+const route = require("./controllers/control");
 
 //  Cors
 

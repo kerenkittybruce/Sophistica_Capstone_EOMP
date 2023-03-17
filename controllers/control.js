@@ -4,7 +4,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const route = express.Router();
-const { User, Product } = require("../model");
+const { User, Products } = require("../model/model");
 
 // User Instance
 
@@ -12,7 +12,7 @@ const user = new User();
 
 //  Product Instance
 
-const product = new Product();
+const product = new Products();
 
 // GET Sophistica
 
