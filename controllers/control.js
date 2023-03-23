@@ -90,4 +90,15 @@ route.delete("/products/:id", (req, res) => {
   product.deleteProduct(req, res);
 });
 
+// ----------- CART ---------- //
+
+
+
+
+
+
+
+
+
+
 module.exports = route;

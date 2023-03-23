@@ -140,7 +140,7 @@ class User {
 
     db.query(strQry, [data, req.params.id], (err) => {
       if (err) throw err;
-      res.status(200).json({ msg: "Arow was affected ." });
+      res.status(200).json({ msg: "A row was affected ." });
     });
   }
 
@@ -196,14 +196,14 @@ class Products {
   // To add a product
 
   addProduct(req, res) {
-    const tsrQry = `
+    const strQry = `
         INSERT INTO Products
         SET ?
         `;
 
     db.query(strQry, [req.body], (err) => {
       if (err) {
-        res.status(400).json({ err: "Unable t add a new product record ." });
+        res.status(400).json({ err: "Unable to add a new product record ." });
       } else {
         res.status(200).json({ msg: "Product record saved ." });
       }
@@ -246,7 +246,102 @@ class Products {
   }
 }
 
+class Cart {
+  // To enable user to fetch all products
+
+  fetchCartProducts(req, res) {
+    const strQry = `
+    SELECT id, cartProduct, description, category, price,quantity, imgURL
+    FROM Cart;
+    `;
+
+    db.query(strQry, (err, results) => {
+      if (err) throw err;
+      res.status(200).json({ results: results });
+    });
+  }
+
+  // To enable user to fetch a single product
+
+  fetchCartProduct(req, res) {
+    const strQry = `
+    SELECT id, cartProduct, description, category, price, quantity, imgURL
+    FROM Cart;
+    `;
+
+    db.query(strQry, [req.params.id], (err, results) => {
+      if (err) throw err;
+      res.status(200).json({ results: results });
+    });
+  }
+
+  // For user to add a products into cart
+
+  addCartProduct(req, res) {
+    const strQry = `
+    INSERT INTO Cart
+    SET ?
+    `;
+
+    db.query(strQry, [req.body], (err) => {
+      if (err) {
+        res.status(400).json({ err: "Unable to send product data to cart ." });
+      } else {
+        res
+          .status(200)
+          .json({ msg: "Product record saved into cart successfully ." });
+      }
+    });
+  }
+
+  // For user to update product records
+
+  updateCartProduct(req, res) {
+    const strQry = `
+    UPDATE Cart
+    SET ?
+    WHERE id = ?;
+    `;
+
+    db.query(strQry, [req.body, req.params.id], (err) => {
+      if (err) {
+        res
+          .status(400)
+          .json({ err: "Unable to update product data in cart ." });
+      } else {
+        res
+          .status(200)
+          .json({
+            msg: "Product record updated and saved successfully in cart .",
+          });
+      }
+    });
+  }
+
+  // For user to delete product(s) from cart
+
+  deleteCartProduct(req, res) {
+    const strQry = `
+    DELETE FROM Cart
+    WHERE id = ?;
+    `;
+
+    db.query(strQry, [req.params.id], (err) => {
+      if (err) {
+        res.status(400).json({ err: "Product data could not be found ." });
+      } else {
+        res
+          .status(200)
+          .json({
+            msg: "Product data has successfully been deleted from cart .",
+          });
+      }
+    });
+  }
+}
+
 module.exports = {
   User,
   Products,
+  Cart,
 };
