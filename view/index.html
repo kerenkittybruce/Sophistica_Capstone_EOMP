@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Work+Sans:wght@300&display=swap");
       body {
-        background: linear-gradient(to right, white, #e6ccb2, #755539, pink);
+        background: linear-gradient(to right, #d01257, #ffcee4);
+        font-family: "Work sans", monospace;
       }
 
       div {
@@ -19,13 +21,13 @@
       table {
         border-collapse: collapse;
         padding: 2.5%;
-        background-color: rgb(235, 175, 175);
-        border: 3px solid black;
+        background-color: #fb90b7;
+        border: 3px solid #1f1021;
       }
 
       table td,
       table th {
-        border: 1.6px solid black;
+        border: 1.6px solid #1f1021;
         padding: 6px;
       }
 
@@ -33,8 +35,8 @@
         padding-top: 10px;
         padding-bottom: 10px;
         text-align: left;
-        background-color: black;
-        color: rgb(235, 175, 175);
+        background-color: #1f1021;
+        color: #fb90b7;
       }
 
       table tr:hover {
@@ -42,13 +44,14 @@
       }
 
       h2 {
-        background-color: rgba(235, 175, 175, 0.7);
+        background-color: #fb90b7;
         text-align: center;
         font-size: 3rem;
+        font-family: "Eagle lake", monospace;
       }
 
       thead {
-        border-bottom: 1.5px solid black;
+        border-bottom: 1.5px solid #1f1021;
       }
     </style>
     <title>Sophistica | Routes</title>
@@ -145,6 +148,38 @@
             <td>
               Deletes product from relevant database successfully -- only users
               with admin roles can update products .
+            </td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>GET</td>
+            <td>/user/:id/carts</td>
+            <td>Allows authorised user to retrieve all products added .</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>POST</td>
+            <td>/user/:id/cart</td>
+            <td>Allows authorized user to add an item to the cart.</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>PUT / PATCH</td>
+            <td>/user/:id/cart/:id</td>
+            <td>Allows authorized user to update an item to the cart.</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>DELETE</td>
+            <td>/user/:id/cart</td>
+            <td>Allows authorized user to delete items from the cart.</td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>DELETE</td>
+            <td>/user/:id/cart/:id</td>
+            <td>
+              Allows authorized user to delete a specific item from the cart.
             </td>
           </tr>
         </tbody>
