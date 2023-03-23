@@ -92,13 +92,34 @@ route.delete("/products/:id", (req, res) => {
 
 // ----------- CART ---------- //
 
+// For user to fetch all products in cart
 
+route.get("/user/:id/carts", (req, res) => {
+  product.fetchCartProducts(req, res);
+});
 
+// For user to add a single product
 
+route.post("/user/:id/cart", bodyParser.json(), (req, res) => {
+  product.addCartProduct(req, res);
+});
 
+// For user to update a product
 
+route.put("/user/:id/cart/:id", bodyParser.json(), (req, res) => {
+  product.updateCartProduct(req, res);
+});
 
+// For a user to delete multiple products
 
+route.delete("/user/:id/cart/:id", (req, res) => {
+  product.deleteCartProducts(req, res);
+});
 
+// For a user to delete a single product
+
+route.delete("/user/:id/cart/:id", (req, res) => {
+  product.deleteCartProduct(req, res);
+});
 
 module.exports = route;
