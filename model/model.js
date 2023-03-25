@@ -251,7 +251,7 @@ class Cart {
 
   fetchCartProducts(req, res) {
     const strQry = `
-    SELECT id, cartProduct, description, category, price,quantity, imgURL
+    SELECT id, cartProduct, description, category, price, quantity, imgURL
     FROM Cart;
     `;
 
